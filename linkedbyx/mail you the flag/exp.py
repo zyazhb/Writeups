@@ -6,6 +6,7 @@ import re
 # MD5截断数值已知 求原始数据
 # 例子 substr(md5(captcha), 0, 6)=60b7ef
 
+
 def md5(s):  # 计算MD5字符串
     return hashlib.md5(str(s).encode('utf-8')).hexdigest()
 
@@ -21,6 +22,12 @@ print("\n[+]Got keymd5:\n"+keymd5)
 md5start = 0   # 设置题目已知的截断位置
 md5length = 4
 
+def getflag(captcha):
+    data = {'captcha':captcha,'domain':'zyazhb@nefu.edu.cn'}
+    flag = r.post(url,data=data)
+    #print(data)
+    print("\n[+]Done!\n"+ str(flag.content))
+
 def findmd5(sss):    # 输入范围 里面会进行md5测试
     key = sss.split(':')
     start = int(key[0])   # 开始位置
@@ -30,7 +37,8 @@ def findmd5(sss):    # 输入范围 里面会进行md5测试
         #print(md5(i)[md5start:md5length])
         if md5(i)[0:4] == keymd5:            # 拿到加密字符串
             result = i
-            print("[+]Got result:\n"+ str(result))    # 打印
+            print("\n[+]Got result:\n"+ str(result))    # 打印
+            getflag(str(result))
             break
             
 
