@@ -23,7 +23,7 @@ md5start = 0   # 设置题目已知的截断位置
 md5length = 4
 
 def getflag(captcha):
-    data = {'captcha':captcha,'domain':'zyazhb@nefu.edu.cn'}
+    data = {'captcha':captcha,'domain':'wozibile'}
     flag = r.post(url,data=data)
     #print(data)
     print("\n[+]Done!\n"+ str(flag.content))
@@ -40,8 +40,6 @@ def findmd5(sss):    # 输入范围 里面会进行md5测试
             print("\n[+]Got result:\n"+ str(result))    # 打印
             getflag(str(result))
             break
-            
-
 
 list=[]  # 参数列表
 for i in range(10):   # 多线程的数字列表 开始与结尾
