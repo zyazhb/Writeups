@@ -22,3 +22,6 @@ $ python jetleak_tester.py http://[ENTER HOSTNAME] 80
 
 This version of Jetty is VULNERABLE to JetLeak!
 ```
+
+
+https://github.com/GDSSecurity/Jetleak-Testing-Script
