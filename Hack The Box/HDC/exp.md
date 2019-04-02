@@ -19,7 +19,12 @@
     window.open('', 'view');
     form.submit();
   }
+  
 2.Lgoin
+
 3.Found secret_area_/mails.txt
+
 4.Sniper all the emails
+
 5.fishroesalad@mail.com
+
