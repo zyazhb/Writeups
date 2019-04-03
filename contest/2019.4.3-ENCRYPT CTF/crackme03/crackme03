@@ -1,0 +1,3 @@
+str = "ZXytUb9fl78evgJy3KJN"
+for i in str:
+    print(chr(ord(str[i])-i))
