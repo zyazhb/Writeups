@@ -1,0 +1,3 @@
+It's not code golf but it's something...
+
+one.py This is printed when you input the flag: .. - / .. ... -. - / -- --- .-. ... / -.-. --- -.. .
