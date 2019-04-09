@@ -12,10 +12,10 @@ print(len(ans))
 
 
 
-data = {'answer':len(ans)}
-flag = r.post(url,data=data)
+data = {'answer':len(ans)-1}
+flag = r.post(url+"work.php",data=data)
 print(flag.text)
 
-flag = re.findall('moctf{.*}',flag.text)
-if flag != []:
-    print(flag.text)
+flag = re.findall('moctf{.*?}',flag.text)
+print(flag)
+
