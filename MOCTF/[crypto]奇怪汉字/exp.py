@@ -5,5 +5,7 @@
 import codecs
 string = "102 117 110 110 121"
 string = string.split(" ")
+print("moctf{")
 for i in string:
     print(chr(int(i)),end="")
+print("}")
