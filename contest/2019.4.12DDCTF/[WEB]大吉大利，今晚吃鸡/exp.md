@@ -11,4 +11,4 @@
 
 http://paper.tuisec.win/detail/537b9a69273dfbf
 
-<img src=adawda></img>
+<img src="/contest/2019.4.12DDCTF/[WEB]大吉大利，今晚吃鸡/76b907ddf944d20a2d21fd2a7e9124dc.png">
