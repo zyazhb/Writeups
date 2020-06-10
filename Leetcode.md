@@ -99,6 +99,11 @@ class Solution:
 ```
 ## 21. [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)
 ```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
         if l1 == None:
             return l2
