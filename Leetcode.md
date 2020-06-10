@@ -1,5 +1,5 @@
 # [相关链接](https://onedrive.live.com/view.aspx?resid=66FB1CA2D2605783%21664&id=documents&wd=target%28%E5%AD%A6%E4%B9%A0%E5%8C%BA%E5%9F%9F.one%7CCEBA8BBB-5A0A-E240-9F81-CDFE4F659533%2F%E5%81%87%E8%A3%85%E5%9C%A8%E5%AD%A6leetcode%7C4DCBAEC4-2016-4144-8612-6107098E047F%2F%29onenote:https://d.docs.live.net/66fb1ca2d2605783/文档/Family%20Notebook/学习区域.one#假装在学leetcode&section-id={CEBA8BBB-5A0A-E240-9F81-CDFE4F659533}&page-id={4DCBAEC4-2016-4144-8612-6107098E047F}&object-id={CD2C297F-74D0-4BD9-8408-0204D0DD698C}&57)
-leetcode[https://leetcode.com/problemset/all/]
+[leetcode](https://leetcode.com/problemset/all/)
 
 # 总结
 ## 1. Two Sum
@@ -76,5 +76,31 @@ class Solution:
                 break
         return p						#fl
 ```
-## 20. Valid Parentheses    
-	
+## 20. [Valid Parentheses](https://leetcode.com/problems/valid-parentheses)    
+一个简单但是效率不高的写法
+```python
+class Solution:
+    def isValid(self, s: str) -> bool:
+        while "()" in s or "[]" in s or "{}" in s:
+            s = s.replace("()","").replace("[]","").replace("{}","")
+        return s == ''
+```
+使用了堆栈但是速度还有提升空间
+```python
+    map = {"(": ")", "[": "]",  "{": "}"}
+    stack = []
+    for i in s:
+        if i in map:
+            stack.append(i)
+        elif stack and i == map[stack[-1]]:
+                stack.pop()
+        else:
+            return False
+    return stack == []
+```
+## 21. [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)
+
+
+## []()
+```python
+```
