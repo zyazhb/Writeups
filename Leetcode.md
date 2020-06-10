@@ -27,17 +27,16 @@ class Solution:
 	            solution = int(str(x)[::-1])
 	        else :
 	            solution = -1 * int(str(x*-1)[::-1])
+		#处理溢出的情况
 	        min = -2**31
 	        max = 2**31 -1
 	        if solution in range(min,max):
 	            return solution
 	        else:
 	            return 0
-	
-需要处理溢出问题
 ```
 ## 9. Palindrome Number 
-	python的回文果然为所欲为
+python的回文果然为所欲为
     
 ```python
     #44ms
@@ -46,7 +45,7 @@ class Solution:
 	        return str(x) == str(x)[::-1]
 ```
 ## 13. Roman to Integer  
-	罗马数字的精髓
+罗马数字的精髓
 ```python
 	class Solution:
 	    def romanToInt(self, s: str) -> int:
